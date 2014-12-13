@@ -9,11 +9,11 @@
  */
 
 angular.module('formsGeneratorApp')
-  .config(function($stateProvider) {
+  .config(["$stateProvider", function($stateProvider) {
   $stateProvider
     .state('main', {
-      url: "",
+      url: "/",
       templateUrl:"appComponents/main/main.view.html",
       controller:"MainCtrl as main"
     })
-});
+}]);
