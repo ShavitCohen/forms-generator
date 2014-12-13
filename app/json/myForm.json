@@ -1,0 +1,41 @@
+{
+  "type":"form",
+  "title":"this is my form",
+  "subtitle":"this is my subtitle",
+  "fields":[
+    {
+      "id":"email",
+      "type":"email",
+      "text":"Your email please",
+      "placeholder":"email here.."
+    },
+    {
+      "id":"gender",
+      "type":"radioGroup",
+      "text":"What is your gender?",
+      "groupName":"gender",
+      "items":[
+        {
+          "text":"male",
+          "value":"male",
+          "checked":true,
+          "onSelection":{
+            "runScript":"someScript:male"
+          }
+        },
+        {
+          "text":"female",
+          "value":"female",
+          "onSelection":{
+            "runScript":"someScript:female"
+          }
+        }
+      ]
+    },
+    {
+      "type":"form",
+      "title":"this is subform title",
+      "subtitle":"this is subform subtitle"
+    }
+  ]
+}

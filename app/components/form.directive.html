@@ -1,0 +1,26 @@
+<form role="form" ng-if="formData.type === 'form'">
+  <hgroup>
+    <h2>{{formData.title}}</h2>
+    <h3 ng-if="formData.subtitle">{{formData.subtitle}}</h3>
+  </hgroup>
+  <div ng-repeat="field in formData.fields" class="form-group">
+    <ng-include src="'form_' + field.type"></ng-include>
+  </div>
+</form>
+
+
+<script type="text/ng-template" id="form_email">
+  <label for="{{field.id}}">{{field.text}}</label>
+  <input type="email" id="{{field.id}}"/>
+</script>
+
+<script type="text/ng-template" id="form_radioGroup">
+  <label for="{{field.id}}">{{field.text}}</label>
+  <div ng-repeat="item in field.items" class="radio">
+    <label>
+      <input type="radio" name="{{::field.id}}" value="{{::field.value}}" ng-click="runScript(item.onSelection.runScript)">
+      {{item.text}}
+    </label>
+  </div>
+</script>
+
