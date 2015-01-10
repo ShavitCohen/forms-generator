@@ -12,7 +12,7 @@ function formBuilder(){
       formData: "="
     },
     link: link,
-    templateUrl: 'components/form.directive.html',
+    templateUrl: 'directives/form.directive.html',
     restrict: 'E'
   };
   return directive;
@@ -20,6 +20,6 @@ function formBuilder(){
   function link(scope, element, attrs) {
     scope.runScript = function(scriptExpression){
       console.log(scriptExpression);
-    }
+    };
   }
 }

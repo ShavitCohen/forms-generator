@@ -160,7 +160,7 @@ module.exports = function (grunt) {
       }
     },
 
-    // Automatically inject Bower components into the app
+    // Automatically inject Bower directives into the app
     wiredep: {
       app: {
         src: ['<%= yeoman.app %>/index.html'],
@@ -257,8 +257,8 @@ module.exports = function (grunt) {
     // uglify: {
     //   dist: {
     //     files: {
-    //       '<%= yeoman.dist %>/components/scripts.js': [
-    //         '<%= yeoman.dist %>/components/scripts.js'
+    //       '<%= yeoman.dist %>/directives/scripts.js': [
+    //         '<%= yeoman.dist %>/directives/scripts.js'
     //       ]
     //     }
     //   }

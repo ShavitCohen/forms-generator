@@ -1,0 +1,73 @@
+<form role="form" ng-if="formData.type === 'form'" class="{{::formData.class}}">
+  <hgroup>
+    <h2>{{formData.title}}</h2>
+    <h3 ng-if="formData.subtitle">{{formData.subtitle}}</h3>
+  </hgroup>
+
+
+  <!--<div ng-if="formData.formSections" class="panel-group" id="{{formData.id}}_accordion" role="tablist" aria-multiselectable="true">-->
+    <div class="panel panel-default" ng-repeat="formSection in formData.formSections">
+      <div class="panel-heading" role="tab" id="{{formData.id}}_handling_{{$index}}">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" ng-click="preventDefault(this)" data-parent="#{{formData.id}}_accordion" href="#{{formData.id}}_collapse_{{$index}}" aria-expanded="false" aria-controls="{{formData.id}}_collapse_{{$index}}">
+            {{formSection.text}}
+          </a>
+        </h4>
+      </div>
+      <div id="{{formData.id}}_collapse_{{$index}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="{{formData.id}}_handling_{{$index}}">
+        <div class="panel-body">
+          <div ng-repeat="formRow in formSection.formRows" class="{{formRow.class}}">
+            <div ng-include ng-repeat="field in formRow.fields" src="'form_' + field.type" class="{{field.class}}"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+<!--</div>-->
+
+
+  <div ng-repeat="formRow in formData.formRows" class="{{formRow.class}}" ng-if="formData.formRows">
+    <div ng-include ng-repeat="field in formRow.fields" src="'form_' + field.type" class="{{field.class}}"></div>
+  </div>
+
+</form>
+
+
+
+
+<script type="text/ng-template" id="form_input">
+  <label>{{::field.text}}
+    <input type="{{field.inputType}}"
+           id="{{::field.id}}"
+           class="form-control {{::form.class}}"
+           placeholder="{{::field.placeholder}}"
+           tabindex="{{field.tabIndex}}"
+           ng-model="field.value"/>
+  </label>
+</script>
+
+
+<script type="text/ng-template" id="form_radioGroup">
+  <label>{{::field.text}}</label>
+  <div ng-repeat="item in field.items" class="radio">
+    <label ng-class="{'checkbox-inline':field.isInline}">
+      <input type="radio"
+             value="{{::item.value}}"
+             ng-checked="item.checked"
+             ng-model="field.value">
+      {{item.text}}
+    </label>
+    <br ng-if="field.isInline === false" />
+  </div>
+</script>
+
+
+<script type="text/ng-template" id="form_select">
+  <label>{{::field.text}}
+    <select id="{{field.id}}" ng-model="field.value" class="form-control">
+      <option ng-repeat="item in field.items" value="{{item.value}}" ng-selected="item.selected">{{item.text}}</option>
+    </select>
+  </label>
+</script>
+
+
+
