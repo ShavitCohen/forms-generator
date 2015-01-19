@@ -1,0 +1,117 @@
+{
+  "type":"form",
+  "id":"myForm",
+  "retrieveDataEndpoint":"/myData/endpoint/{{userid}}",
+  "sendDataEndpoint":"/api/save/thisForm/{{userid}}",
+  "title":"",
+  "subtitle":"Monitor Group settings",
+  "class":"",
+  "behaviour":"accordion",
+  "formSections":[
+    {
+      "roles":["admin","superAdmin"],
+      "text":"General Settings",
+      "formRows":[
+        {
+          "class":"",
+          "fields":[
+            {
+              "class":"form-group",
+              "id":"groupName",
+              "type":"input",
+              "inputType":"text",
+              "text":"Group Name:",
+              "placeholder":"Group Name Here...",
+              "tabIndex":1
+            }
+          ]
+        },
+        {
+          "class":"",
+          "fields": [
+            {
+              "class":"form-group",
+              "id":"groupDescription",
+              "text":"Group Description",
+              "type":"textarea",
+              "placeholder":"Group Description Here...",
+              "tabIndex":2
+            }
+          ]
+        },
+        {
+          "class":"",
+          "fields":[
+            {
+              "class":"form-group",
+              "id":"sourceTemplate",
+              "type":"browse",
+              "text":"Source Template",
+              "buttonText":"Browse",
+              "tabIndex":3,
+              "onClick":{
+                "function":"alert",
+                "parameters":"this is a good day"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text":"Dependencies",
+      "formRows":[
+        {
+          "class":"",
+          "fields":[
+            {
+              "class":"form-group",
+              "id":"dependsOn",
+              "type":"browse",
+              "text":"Depends On",
+              "buttonText":"Click here to browse",
+              "onClick":{
+                "function":"alert",
+                "parameters":"This is the DependsOn browse"
+              },
+              "tabIndex":4
+            }
+          ]
+        },
+        {
+          "class":"",
+          "fields":[
+            {
+              "class":"form-group",
+              "id":"Dependency Condition",
+              "type":"select",
+              "isMultiple":false,
+              "text":"Depends On",
+              "genItems":"dependencies",
+              "tabIndex":4
+            }
+          ]
+        }
+
+      ]
+    },
+    {
+      "text":"Search and filters tags",
+      "formRows":[
+        {
+          "class":"",
+          "fields":[
+            {
+              "class":"form-group",
+              "id":"radioGroup",
+              "type":"radioGroup",
+              "text":"Group Tags",
+              "genItems":"tags"
+            }
+          ]
+        }
+      ]
+    }
+
+  ]
+}
