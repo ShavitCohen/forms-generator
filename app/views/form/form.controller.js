@@ -10,7 +10,7 @@
 
   formCtrl.$inject = ["$scope", "$http"];
   function formCtrl($scope, $http) {
-    $http.get("json/myForm.json")
+    $http.get("json/groupSettings.json")
       .success(function (data, status, headers, config) {
         $scope.formData = data;
       });

@@ -7,13 +7,12 @@
     .module('formsGeneratorApp')
     .controller('MainCtrl', mainCtrl);
 
-  mainCtrl.$inject = ["$scope"];
-  function mainCtrl($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  mainCtrl.$inject = ["$scope", "$http"];
+  function mainCtrl($scope,$http) {
+    $http.get("json/groupSettings.json")
+      .success(function (data, status, headers, config) {
+        $scope.formData = data;
+      });
   }
 
 

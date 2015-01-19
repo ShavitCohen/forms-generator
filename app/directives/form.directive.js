@@ -5,21 +5,19 @@ angular
   .module("formsGeneratorApp")
   .directive("formBuilder",formBuilder);
 
-formBuilder.$inject = [];
-function formBuilder(){
-  var directive = {
+formBuilder.$inject = ["formDataService"];
+function formBuilder(formDataService){
+  return {
     scope:{
       formData: "="
     },
-    link: link,
+    link: function (scope, element, attrs) {
+      scope.runScript = function(scriptExpression){
+        //No logic
+      };
+      scope.formDataService = formDataService;
+    },
     templateUrl: 'directives/form.directive.html',
     restrict: 'E'
   };
-  return directive;
-
-  function link(scope, element, attrs) {
-    scope.runScript = function(scriptExpression){
-      console.log(scriptExpression);
-    };
-  }
 }
