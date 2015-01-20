@@ -9,7 +9,6 @@
   "behaviour":"accordion",
   "formSections":[
     {
-      "roles":["admin","superAdmin"],
       "text":"General Settings",
       "formRows":[
         {

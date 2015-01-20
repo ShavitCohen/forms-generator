@@ -1,0 +1,22 @@
+{
+  "license":["bronze","silver","gold","premium"],
+  "addition":["30","31","32"],
+  "roles":["user", "admin", "superuser"],
+
+  "read":{
+    "onlyMembersOf":{
+
+    },
+    "allButMembersOf":{
+
+    }
+  },
+  "write":{
+    "onlyMembersOf":{
+
+    },
+    "allButMembersOf":{
+
+    }
+  }
+}

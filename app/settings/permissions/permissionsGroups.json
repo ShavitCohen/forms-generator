@@ -1,0 +1,31 @@
+{
+  "group1":{
+    "read":{
+      "onlyMembersOf":{
+        "role":["superuser"],
+        "license":["premium"],
+        "addition":["32"]
+      }
+    }
+  },
+  "group2":{
+    "write":{
+      "onlyMembersOf":{
+        "license":"gold",
+        "role":"superuser"
+      }
+    }
+  },
+  "group3":{
+    "read":{
+      "allButMembersOf":{
+        "role":["user"]
+      }
+    },
+    "write":{
+      "onlyMembersOf":{
+        "license":"gold"
+      }
+    }
+  }
+}

@@ -39,7 +39,7 @@ function formDataService(){
         { value: "good",    icon: "medium-icon-good",   text: "Good" }
       ],
       dependencies:[
-        { value: "dependency1",   icon: "medium-icon-error",  text: "Dependency1" },
+        { value: "dependency1",   icon: "medium-icon-error",  text: "Dependency1"},
         { value: "dependency2",   icon: "medium-icon-error",  text: "Dependency2" },
         { value: "dependency3",   icon: "medium-icon-error",  text: "Dependency3" },
       ],

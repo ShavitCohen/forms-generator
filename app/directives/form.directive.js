@@ -5,8 +5,8 @@ angular
   .module("formsGeneratorApp")
   .directive("formBuilder",formBuilder);
 
-formBuilder.$inject = ["formDataService"];
-function formBuilder(formDataService){
+formBuilder.$inject = ["formDataService","permissionsHandler"];
+function formBuilder(formDataService, permissionsHandler){
   return {
     scope:{
       formData: "="
@@ -15,7 +15,23 @@ function formBuilder(formDataService){
       scope.runScript = function(scriptExpression){
         //No logic
       };
+      scope.permissionsHandler = permissionsHandler;
       scope.formDataService = formDataService;
+
+      scope.$watch("formData",function(newVal){
+        if(scope.formData && !scope.formData.permissionsChecked){
+          permissionsHandler.setPermissionForNestedObject(scope.formData, ["formSections.formRows.fields","formSections.formRows.fields.items"]);
+        }
+      },true);
+
+      scope.getItems = function(field){
+        if(field.genItems){
+          field.items = formDataService.selectValues[field.genItems];
+        }
+      }
+
+
+
     },
     templateUrl: 'directives/form.directive.html',
     restrict: 'E'
